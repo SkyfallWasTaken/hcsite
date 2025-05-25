@@ -1,11 +1,9 @@
 import {
-  Badge,
   Box,
   Button,
   Card,
   Flex,
   Grid,
-  Heading,
   Link,
   Text
 } from 'theme-ui'
@@ -14,7 +12,6 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
-import BGImg from '../components/background-image'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
@@ -26,9 +23,7 @@ import Clubs from '../components/index/cards/clubs'
 import Workshops from '../components/index/cards/workshops'
 import HCB from '../components/index/cards/hcb'
 import Hackathons from '../components/index/cards/hackathons'
-import OuternetImgFile from '../public/home/outernet-110.jpg'
 import AssembleBannerImg from "../public/banner.png"
-import Announcement from '../components/announcement'
 import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
 import Secret from '../components/secret'
@@ -38,26 +33,13 @@ import Icon from '../components/icon'
 import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
-import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
 import Juice from "../components/index/cards/juice"
-import {
-  SiJavascript,
-  SiPython,
-  SiHtml5,
-  SiCss3,
-  SiReact,
-  SiNodedotjs,
-  SiSwift,
-  SiGo,
-  SiRust,
-  SiKotlin
-} from 'react-icons/si'
 import theme from '../lib/theme'
-import { ThemeProvider } from 'theme-ui'
+import { ThemeUIProvider } from 'theme-ui'
 import carouselCardsData from '../lib/carousel.json';
 import { Slack as Slacky } from './api/slack';
 import { fetchGitHub } from './api/github';
@@ -178,6 +160,7 @@ function Page({
   const [count, setCount] = useState(0)
 
   let images = [
+    { alt: 'Hack Clubbers at Assemble in SF', src: AssembleBannerImg },
     { alt: 'AMA with Sal Khan', src: '/home/ama.png' },
     {
       alt: 'Hack Clubbers at SpaceX HQ in LA',
@@ -221,7 +204,7 @@ function Page({
   }, [])
 
   return (
-    <ThemeProvider theme={{ ...theme, ...cyberpunkVariants }}>
+    <ThemeUIProvider theme={{ ...theme, ...cyberpunkVariants }}>
       <Meta
         as={Head}
         title="A Home for High School Makers"
@@ -244,6 +227,7 @@ function Page({
           position: 'relative',
           bg: 'cyberpunk.darkBg',
           color: 'cyberpunk.text',
+          pt: 4,
           '@keyframes gridFloat': {
             '0%': {
               backgroundPosition: '0 0'
@@ -267,125 +251,6 @@ function Page({
         <Konami action={easterEgg}>
           {"Hey, I'm an Easter Egg! Look at me!"}
         </Konami>
-        <Box
-          as="header"
-          sx={{
-            bg: 'cyberpunk.darkerBg',
-            pt: [7, 8, '180px'],
-            pb: [6, 7, '160px'],
-            minHeight: ['50vh'],
-            textAlign: 'center',
-            position: 'relative',
-            overflow: 'hidden'
-          }}
-        >
-          <BGImg
-            src={AssembleBannerImg}
-            alt="Hack Clubbers at Assemble in SF"
-            width={1920}
-            height={1080}
-            priority
-          />
-          <Box
-            sx={{
-              maxWidth: ['90vw', '85vw', '80vw'],
-              mx: 'auto',
-              textAlign: 'center',
-              position: 'relative',
-              zIndex: 2
-            }}
-          >
-            <Text
-              as="h1"
-              variant="title"
-              sx={{
-                fontSize: ['42px', '56px', '72px'],
-                mb: 3,
-                background: 'linear-gradient(to right,rgb(200, 215, 219),rgb(255, 253, 255))',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                textAlign: 'center',
-                textShadow: '0 0 20px rgba(0, 191, 255, 0.3)'
-              }}
-            >
-              A Home for High School Makers
-            </Text>
-            <Text
-              as="p"
-              variant="subtitle"
-              sx={{
-                fontSize: ['18px', '22px', '24px'],
-                maxWidth: '650px',
-                mx: 'auto',
-                mb: 4,
-                color: 'cyberpunk.textHighlight',
-                textShadow: '0 0 10px rgba(255, 255, 255, 0.2)'
-              }}
-            >
-              Join a community of <Comma>{slackData.total_members_count}</Comma> makers, building open source projects and learning to code together.
-            </Text>
-            <Flex
-              sx={{
-                justifyContent: 'center',
-                gap: 3,
-                flexWrap: 'wrap',
-              }}
-            >
-              <Button
-                variant="ctaLg"
-                as="a"
-                href="/slack"
-                sx={{
-                  transformOrigin: 'center left',
-                  bg: '#8A2BE2',
-                  px: 4,
-                  py: 3,
-                  fontSize: [2, 3]
-                }}
-              >
-                <Text>Join {slackData.total_members_count ? withCommas(slackData.total_members_count) : '60k+'} Teen Hackers</Text>
-                <Icon glyph="slack-fill" size={24} />
-              </Button>
-              <Button
-                variant="ctaLg"
-                as="a"
-                href="https://shipwrecked.hack.club/3"
-                sx={{
-                  transformOrigin: 'left',
-                  backgroundImage: 'linear-gradient(to right, #00BFFF, #8A2BE2)',
-                  px: 4,
-                  py: 3,
-                  fontSize: [2, 3]
-                }}
-              >
-                Sign Up: Private Island Hackathon
-              </Button>
-            </Flex>
-            <Flex sx={{
-              gap: [3],
-              my: 1,
-              py: 3,
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              alignItems: 'center',
-              fontSize: ['16px', '18px'],
-              color: 'cyberpunk.textHighlight',
-              opacity: 0.95,
-            }}>
-              <Text sx={{
-                color: '#33d6a6',
-                fontWeight: 'bold',
-                textShadow: '0 0 10px rgba(51, 214, 166, 0.3)'
-              }}>
-                $500k+ in prizes given
-              </Text>
-              <Text sx={{ color: 'cyberpunk.textMuted' }}>•</Text>
-              <Text>80k+ projects built</Text>
-              <Text sx={{ color: 'cyberpunk.textMuted' }}>•</Text>
-              <Text><Comma>{slackData.total_members_count || 60_000}</Comma> teenage builders</Text>
-            </Flex>
-          </Box>
-        </Box>
         <Box as="section" sx={{ py: [4, 5, '82px'], bg: 'cyberpunk.darkBg' }}>
           <Box
             sx={{
@@ -400,7 +265,8 @@ function Page({
               as="h1"
               sx={{
                 fontSize: ['36px', '48px', '56px'],
-                color: 'white'
+                color: 'white',
+                textAlign: 'center'
               }}
             >
               Discover the{' '}
@@ -427,12 +293,61 @@ function Page({
                 fontSize: ['18px', '20px', '22px'],
                 pb: [3, 3, 4],
                 maxWidth: 'unset',
-                color: 'cyberpunk.text'
+                color: 'cyberpunk.text',
+                textAlign: 'center'
               }}
             >
-              Coding can be a solitary activity - but it doesn't have to be that way. We've organised hackathons across China, the US, Canada, India, and more, and believe that the
-              best way to enjoy programming is to do it with other people. Here's how we can help you do just that:
+              Coding can be a solitary activity - but it doesn't have to be that way. Hack Club is a global network of over {withCommas(slackData.total_members_count || 60_000)} teenagers who learn programming, code together, and have fun. <br />
             </Text>
+            <Flex
+              sx={{
+                justifyContent: 'center',
+                gap: 3,
+                mt: 1,
+                flexWrap: 'wrap',
+              }}
+            >
+              <Button
+                variant="ctaLg"
+                as="a"
+                icon="slack-fill"
+                {...({ href: "/slack" })}
+                sx={{
+                  transformOrigin: 'center left',
+                  bg: '#8A2BE2',
+                  px: 4,
+                  py: 3,
+                  fontSize: [2, 4]
+                }}
+              >
+                <Text>Join {slackData.total_members_count ? withCommas(slackData.total_members_count) : '60k+'} Teen Hackers</Text>
+                <Icon glyph="slack-fill" size={24} />
+              </Button>
+            </Flex>
+            <Flex sx={{
+              gap: [3],
+              mt: 1,
+              mb: 5,
+              py: 3,
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: ['16px', '18px'],
+              color: 'cyberpunk.textHighlight',
+              opacity: 0.95,
+            }}>
+              <Text sx={{
+                color: '#33d6a6',
+                fontWeight: 'bold',
+                textShadow: '0 0 10px rgba(51, 214, 166, 0.3)'
+              }}>
+                $500k+ in prizes given
+              </Text>
+              <Text sx={{ color: 'cyberpunk.textMuted' }}>•</Text>
+              <Text>80k+ projects built</Text>
+              <Text sx={{ color: 'cyberpunk.textMuted' }}>•</Text>
+              <Text><Comma>{slackData.total_members_count || 60_000}</Comma> teenage builders</Text>
+            </Flex>
             <Grid columns={[1, 1, 1, '2.5fr 3fr']} gap={[0, 3, 4]} pt={[3, 4]}>
               <Box
                 sx={{
@@ -573,12 +488,12 @@ function Page({
                   },
                   p: {
                     my: 0,
-                    fontSize: ['18px', '20px', '22px'],
+                    fontSize: ['18px', null, '20px'],
                     color: 'cyberpunk.text'
                   },
                   strong: {
                     display: 'block',
-                    fontSize: ['22px', 2, 3],
+                    fontSize: ['18px', null, '22px'],
                     color: 'white'
                   }
                 }}
@@ -593,15 +508,17 @@ function Page({
                     color: 'inherit',
                     position: 'relative',
                     textDecoration: 'none',
-                    borderRadius: 'extra'
+                    borderRadius: 'extra',
                   }}
                   as="li"
                 >
                   <Text as="span" color="cyberpunk.electricBlue" aria-hidden="true">
                     1
                   </Text>
-                  <Text as="p" variant="subtitle">
-                    <strong sx={{ mb: 1 }}>
+                  <Text as="p" variant="subtitle" sx={{
+                    fontSize: ['12px']
+                  }}>
+                    <strong sx={{ mb: 1, }}>
                       Connect with other teenage coders
                     </strong>
                     Have a coding question? Looking for project feedback? You'll
@@ -1391,7 +1308,7 @@ function Page({
         }`}
         </style>
       </Footer>
-    </ThemeProvider>
+    </ThemeUIProvider>
   )
 }
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
