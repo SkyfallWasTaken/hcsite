@@ -12,3 +12,5 @@ bun.lockb
 .yarn
 .yarnrc.yml
 .env*.local
+.dev.vars
+.open-next

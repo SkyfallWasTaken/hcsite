@@ -380,3 +380,6 @@ const withAnimeJS = withTM(['animejs'])
 export default million.next(withAnimeJS(withMDXConfig(nextConfig)), {
   auto: true
 })
+
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+initOpenNextCloudflareForDev();
