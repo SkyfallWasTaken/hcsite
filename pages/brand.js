@@ -110,7 +110,7 @@ const Page = ({ css }) => (
     <Meta
       as={Head}
       title="Branding"
-      description="Download Hack Club HQ’s logos and preview our brand fonts & colors."
+      description="Download Hack Club HQ's logos and preview our brand fonts & colors."
       image="https://workshop-cards.hackclub.com/Branding.png?theme=dark&fontSize=350px&brand=HQ"
     />
     <ForceTheme theme="light" />
@@ -130,7 +130,7 @@ const Page = ({ css }) => (
           Hack Club Brand
         </Heading>
         <Heading as="h2" variant="subtitle" sx={{ mt: 3, color: 'text' }}>
-          Download HQ’s logos and preview our brand colors & font.
+          Download HQ's logos and preview our brand colors & font.
         </Heading>
       </Container>
     </Box>
@@ -323,11 +323,10 @@ const Page = ({ css }) => (
 
 export default Page
 
-export const getStaticProps = () => {
+export const getStaticProps = async () => {
   const fs = require('fs')
-  const css = fs.readFileSync(
-    './node_modules/@hackclub/theme/fonts/reg-ital-bold.css',
-    'utf8'
-  )
+  const path = require('path')
+  const cssFilePath = path.join(process.cwd(), 'node_modules', '@hackclub', 'theme', 'fonts', 'reg-ital-bold.css')
+  const css = fs.readFileSync(cssFilePath, 'utf8')
   return { props: { css } }
 }
