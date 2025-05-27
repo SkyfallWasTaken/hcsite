@@ -82,7 +82,8 @@ const MailingList = ({ posts = [] }) => {
           zIndex: 2,
           backdropFilter: 'blur(12px)',
           p: [3, 4],
-          borderRadius: '12px'
+          borderRadius: '12px',
+          color: 'cyberpunk.textInverted'
         }}
       >
         <Flex
@@ -100,7 +101,6 @@ const MailingList = ({ posts = [] }) => {
                 variant="title"
                 sx={{
                   fontSize: [4, '36px', '42px'],
-                  color: 'cyberpunk.textHighlight',
                   textAlign: 'left',
                   mb: 2
                 }}
@@ -109,7 +109,6 @@ const MailingList = ({ posts = [] }) => {
               </Text>
               <Text
                 sx={{
-                  color: 'cyberpunk.textMuted',
                   fontSize: [2, 3],
                   textAlign: 'left',
                   lineHeight: 'body'
@@ -137,7 +136,7 @@ const MailingList = ({ posts = [] }) => {
                     borderColor: 'cyberpunk.electricBlue'
                   },
                   '&::placeholder': {
-                    color: 'cyberpunk.textMuted',
+                    color: 'cyberpunk.textInverted',
                     opacity: 0.7
                   }
                 },
@@ -163,7 +162,6 @@ const MailingList = ({ posts = [] }) => {
               <Button type="submit" sx={{
                 mt: [2, 0], fontSize: 2, width: '100%', py: 3,
                 background: 'cyberpunk.ctaGradient',
-                color: 'cyberpunk.textHighlight',
                 border: 'none',
                 borderRadius: '8px',
                 cursor: 'pointer',
@@ -190,10 +188,10 @@ const MailingList = ({ posts = [] }) => {
               <Box sx={{ mt: 4, p: 3, bg: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid', borderColor: 'cyberpunk.gridLine' }}>
                 <Flex sx={{ alignItems: 'center' }}>
                   <Box>
-                    <Text as="p" sx={{ fontStyle: 'italic', color: 'cyberpunk.text', fontSize: [1, 2], mb: 1 }}>
+                    <Text as="p" sx={{ fontStyle: 'italic', fontSize: [1, 2], mb: 1 }}>
                       &quot;Happenings is genuinely the one newsletter I actually look forward to reading&quot;
                     </Text>
-                    <Text as="p" sx={{ color: 'cyberpunk.textMuted', fontSize: [0, 1], textAlign: 'right' }}>
+                    <Text as="p" sx={{ fontSize: [0, 1], textAlign: 'right' }}>
                       - Nihaal, 16
                     </Text>
                   </Box>
@@ -209,7 +207,6 @@ const MailingList = ({ posts = [] }) => {
                 variant="title"
                 sx={{
                   mb: 3,
-                  color: 'cyberpunk.textHighlight',
                   fontSize: ['30px', '32px'],
                   fontWeight: 'bold',
                   textAlign: ['center', null, 'left']
@@ -247,7 +244,7 @@ const MailingList = ({ posts = [] }) => {
                           {post.title}
                         </Text>
                         {post.date && (
-                          <Text as="p" sx={{ color: 'cyberpunk.textMuted', fontSize: ['12px', '14px'], mb: 2 }}>
+                          <Text as="p" sx={{ fontSize: ['12px', '14px'], mb: 2 }}>
                             <RelativeTime value={post.date + " 16:00"} />
                           </Text>
                         )}
@@ -257,7 +254,6 @@ const MailingList = ({ posts = [] }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                         sx={{
-                          color: 'cyberpunk.textMuted',
                           fontSize: ['14px', '16px'],
                           textDecoration: 'none',
                           '&:hover': {
