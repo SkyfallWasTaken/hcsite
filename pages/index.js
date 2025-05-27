@@ -1,11 +1,9 @@
 import {
-  Badge,
   Box,
   Button,
   Card,
   Flex,
   Grid,
-  Heading,
   Link,
   Text
 } from 'theme-ui'
@@ -14,7 +12,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
-import ForceTheme from '../components/force-theme'
+import BGImg from '../components/background-image'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
@@ -26,20 +24,23 @@ import Workshops from '../components/index/cards/workshops'
 import HCB from '../components/index/cards/hcb'
 import Hackathons from '../components/index/cards/hackathons'
 import Announcement from '../components/announcement'
+// import OuternetImgFile from '../public/home/outernet-110.jpg'
+import AssembleBannerImg from "../public/banner.png"
+// import Announcement from '../components/announcement'
 import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
 import Secret from '../components/secret'
-import MailingList from '../components/index/cards/mailing-list'
 import Slack from '../components/index/cards/slack'
 import Icon from '../components/icon'
 import GitHub from '../components/index/github'
 import Photo from '../components/photo'
-import Haxidraw from '../components/index/cards/haxidraw'
+import Comma from '../components/comma'
+// import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
-import Juice from '../components/index/cards/juice'
+import Juice from "../components/index/cards/juice"
 import PageHeader from '../components/index/PageHeader'
 import theme from '../lib/theme'
 import { ThemeProvider } from 'theme-ui'
@@ -164,7 +165,6 @@ function Page({
           size="512x512"
         />
       </Head>
-      <ForceTheme theme="dark" />
       <Nav dark />
       <Box
         as="main"
@@ -817,6 +817,26 @@ function Page({
               }
             }}>
               <strong>It's for the folks who've never written a line of code in their life</strong> and want help from teens who get them and know what it's like to be in their shoes, and it's for those who've been coding for years and want help getting even better.
+            </Text>
+            <Text
+              as="p"
+              sx={{
+                fontSize: ['18px', '20px', '22px'],
+                lineHeight: 1.75,
+                mb: 3,
+                '& strong': {
+                  color: 'cyberpunk.magenta'
+                }
+              }}
+            >
+              <strong>
+                It's for the folks who've been coding in their bedrooms
+              </strong>{' '}
+              and want to share their work with teens who get them. It's for the
+              folks who've never written a line of code in their life, and want
+              help from people who'll go above and beyond to help you, not just
+              tell you to just "read the manual" or "ask ChatGPT".
+            </Text>
             <Text
               as="p"
               sx={{
@@ -844,6 +864,22 @@ function Page({
               }
             }}>
               <strong>We're builders ourselves,</strong> and we know that across the world, there are tens of thousands of teens who just need someone to give them a little push and help them make something they're proud of.
+            </Text>
+            <Text
+              as="p"
+              sx={{
+                fontSize: ['18px', '20px', '22px'],
+                lineHeight: 1.75,
+                '& strong': {
+                  color: 'cyberpunk.neonPurple'
+                }
+              }}
+            >
+              <strong>We're builders ourselves,</strong> and we know that across
+              the world, there are tens of thousands of teens who just need
+              someone to give them a little push and help them make something
+              they're proud of.
+            </Text>
             <Text
               as="p"
               sx={{
@@ -961,6 +997,7 @@ function Page({
                 </Button>
                 <Text variant="ctaLabel">
                   Join {slackData.total_members_count ? withCommas(slackData.total_members_count) : '61,275'} teen hackers building the future
+                </Text>
                 <Text
                   sx={{
                     fontSize: ['14px', '16px'],
