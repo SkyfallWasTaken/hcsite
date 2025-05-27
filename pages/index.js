@@ -560,8 +560,8 @@ function Page({
         </Box>
         <Box>
           <Box py={[4, 5, '82px']} sx={{
-            borderTop: '1px solid #0A0F2C',
-            borderBottom: '1px solid #0A0F2C'
+            borderTop: '1px solid rgb(170, 157, 157)',
+            borderBottom: '1px solid rgb(170, 157, 157)'
           }}>
             <Box
               sx={{
@@ -930,19 +930,6 @@ function Page({
                 </Button>
                 <Text variant="ctaLabel">
                   Join {slackData.total_members_count ? withCommas(slackData.total_members_count) : '61,275'} teen hackers building the future
-                </Text>
-                <Text
-                  sx={{
-                    fontSize: ['14px', '16px'],
-                    color: 'cyberpunk.text',
-                    textAlign: 'center'
-                  }}
-                >
-                  Join{' '}
-                  {slackData.total_members_count
-                    ? withCommas(slackData.total_members_count)
-                    : '60k+'}{' '}
-                  teen hackers building the future
                 </Text>
               </Flex>
 

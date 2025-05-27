@@ -19,13 +19,11 @@ export default function GitHub({
   return (
     <Badge
       variant="pill"
-      bg="snow"
       as="a"
       href={url || 'https://github.com/hackclub'}
       target="_blank"
       rel="noopener"
       sx={{
-        color: 'black',
         textDecoration: 'none',
         fontWeight: '400',
         zIndex: 4,
@@ -38,7 +36,8 @@ export default function GitHub({
         height: '2rem',
         width: ['fit-content', null, null, '100%'],
         maxWidth: '30rem',
-        opacity: opacity
+        opacity: opacity,
+        border: '1px solid rgb(170, 157, 157)'
       }}
       {...props}
     >
