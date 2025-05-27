@@ -42,6 +42,7 @@ import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
 import Juice from "../components/index/cards/juice"
 import PageHeader from '../components/index/PageHeader'
+import MailingList from '../components/index/cards/mailing-list'
 import theme from '../lib/theme'
 import { ThemeProvider } from 'theme-ui'
 import carouselCardsData from '../lib/carousel.json'
