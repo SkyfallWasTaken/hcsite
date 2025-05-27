@@ -808,6 +808,15 @@ function Page({
               It's a place for those who build things and dream big, not for
               class credit or for an exam, but for the love of making.
             </Text>
+            <Text as="p" sx={{
+              fontSize: ['18px', '20px', '22px'],
+              lineHeight: 1.75,
+              mb: 3,
+              '& strong': {
+                color: 'orange'
+              }
+            }}>
+              <strong>It's for the folks who've never written a line of code in their life</strong> and want help from teens who get them and know what it's like to be in their shoes, and it's for those who've been coding for years and want help getting even better.
             <Text
               as="p"
               sx={{
@@ -827,6 +836,14 @@ function Page({
               help from people who'll go above and beyond to help you, not just
               tell you to just "read the manual" or "ask ChatGPT".
             </Text>
+            <Text as="p" sx={{
+              fontSize: ['18px', '20px', '22px'],
+              lineHeight: 1.75,
+              '& strong': {
+                color: 'magenta',
+              }
+            }}>
+              <strong>We're builders ourselves,</strong> and we know that across the world, there are tens of thousands of teens who just need someone to give them a little push and help them make something they're proud of.
             <Text
               as="p"
               sx={{
@@ -841,6 +858,15 @@ function Page({
               the world, there are tens of thousands of teens who just need
               someone to give them a little push and help them make something
               they're proud of.
+            </Text>
+            <Text as="p" sx={{
+              fontSize: ['18px', '20px', '22px'],
+              lineHeight: 1.75,
+              '& strong': {
+                color: 'yellow',
+              }
+            }}>
+              The question is - <strong>are you ready to be a part of something bigger?</strong>
             </Text>
           </Box>
         </Box>
@@ -933,6 +959,8 @@ function Page({
                 >
                   JOIN THE SLACK →
                 </Button>
+                <Text variant="ctaLabel">
+                  Join {slackData.total_members_count ? withCommas(slackData.total_members_count) : '61,275'} teen hackers building the future
                 <Text
                   sx={{
                     fontSize: ['14px', '16px'],
