@@ -166,7 +166,7 @@ function Page({
           size="512x512"
         />
       </Head>
-      <Nav />
+      <Nav color="white" />
       <Box
         as="main"
         sx={{
